@@ -1,3 +1,5 @@
+import 'package:bloc_static_example/feature/cart/ui/cart.dart';
+import 'package:bloc_static_example/feature/wishlist/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,9 +19,25 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
       bloc: homeBloc,
-      // listenWhen: (previous, current) {},
-      listener: (context, state) {},
-      // buildWhen: (previous, current) {},
+      listenWhen: (previous, current) => current is HomeActionState,
+      buildWhen: (previous, current) => current is! HomeActionState,
+      listener: (context, state) {
+        if (state is HomeNavigateProductCartPageActionState) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Cart(),
+            ),
+          );
+        } else if (state is HomeNavigateProductWishlistPageActionState) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WishList(),
+            ),
+          );
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
