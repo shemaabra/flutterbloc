@@ -6,7 +6,7 @@ class GroceryData {
       'description': 'Fresh and yellow like yanga',
       'price': '100',
       'imageUrl':
-          'https://w7.pngwing.com/pngs/55/75/png-transparent-graphy-banana-fruit-footage-berry-golden-banana-food-golden-frame-orange.png'
+          'https://m.media-amazon.com/images/I/51ebZJ+DR4L._AC_UF1000,1000_QL80_.jpg'
     },
     {
       'id': '2',
@@ -14,7 +14,7 @@ class GroceryData {
       'description': 'Fresh and yellow like yanga',
       'price': '100',
       'imageUrl':
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3vpnv1uuwcaE0V2XvMPNIsqNfBBkbH2LSBA&usqp=CAU'
+          'https://kidseatincolor.com/wp-content/uploads/2022/02/eggs-e1648216350119-500x500.jpeg'
     },
     {
       'id': '3',
