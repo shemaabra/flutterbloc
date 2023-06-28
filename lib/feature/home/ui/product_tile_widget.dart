@@ -8,6 +8,10 @@ class ProductTileWIdget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.black),
+      ),
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
       child: Column(
@@ -21,8 +25,26 @@ class ProductTileWIdget extends StatelessWidget {
                     fit: BoxFit.cover,
                     image: NetworkImage(productDataModel.imageUrl))),
           ),
-          Text(productDataModel.name),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            productDataModel.name,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
           Text(productDataModel.description),
+          Row(
+            children: [
+              Text(
+                "\$" + productDataModel.price.toString(),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: [],
+              )
+            ],
+          ),
         ],
       ),
     );
