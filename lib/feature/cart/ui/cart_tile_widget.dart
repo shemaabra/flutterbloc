@@ -1,13 +1,13 @@
+import 'package:bloc_static_example/feature/cart/bloc/cart_bloc.dart';
 import 'package:bloc_static_example/models/home_product_data.dart';
 import 'package:flutter/material.dart';
 
-import '../bloc/home_bloc.dart';
 
-class ProductTileWIdget extends StatelessWidget {
+class CartTileWIdget extends StatelessWidget {
   final ProductDataModel productDataModel;
-  final HomeBloc homeBloc;
-  const ProductTileWIdget(
-      {super.key, required this.productDataModel, required this.homeBloc});
+  final CartBloc cartBloc;
+  const CartTileWIdget(
+      {super.key, required this.productDataModel, required this.cartBloc});
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +43,14 @@ class ProductTileWIdget extends StatelessWidget {
               Text(
                 "\$" + productDataModel.price.toString(),
                 style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Row(
                 children: [
                   IconButton(
                     onPressed: () {
-                      homeBloc.add(HomeProductWishlistButtonClickEvent(
-                          clickedProduct: productDataModel));
+                      // homeBloc.add(HomeProductWishlistButtonClickEvent(
+                      //     clickedProduct: productDataModel));
                     },
                     icon: const Icon(
                       Icons.favorite_border,
@@ -59,8 +59,8 @@ class ProductTileWIdget extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      homeBloc.add(HomeProductCartButtonClickEvent(
-                          clickedProduct: productDataModel));
+                      // homeBloc.add(HomeProductCartButtonClickEvent(
+                      //     clickedProduct: productDataModel));
                     },
                     icon: const Icon(
                       Icons.shopping_bag_outlined,

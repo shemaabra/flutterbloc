@@ -43,6 +43,12 @@ class _HomeState extends State<Home> {
               builder: (context) => const WishList(),
             ),
           );
+        } else if (state is HomeProductItemCartedActionState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text("Item Carted")));
+        } else if (state is HomeProductItemWishListedActionState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text("Items Wishlisted")));
         }
       },
       builder: (context, state) {
@@ -60,9 +66,9 @@ class _HomeState extends State<Home> {
                 title: Text(
                   "Grocery App",
                   style: GoogleFonts.montserrat(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 backgroundColor: Colors.teal,
                 elevation: 0.0,
@@ -71,13 +77,17 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       homeBloc.add(HomeProductWishlistButtonNavigateEvent());
                     },
-                    icon: const Icon(Icons.favorite_border),
+                    icon: const Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                    ),
                   ),
                   IconButton(
                     onPressed: () {
                       homeBloc.add(HomeProductCartButtonBavigateEvent());
                     },
-                    icon: const Icon(Icons.shopping_bag_outlined),
+                    icon: const Icon(Icons.shopping_bag_outlined,
+                        color: Colors.white),
                   ),
                 ],
               ),
@@ -85,7 +95,9 @@ class _HomeState extends State<Home> {
                   itemCount: successState.products.length,
                   itemBuilder: (context, index) {
                     return ProductTileWIdget(
-                        productDataModel: successState.products[index]);
+                      productDataModel: successState.products[index],
+                      homeBloc: homeBloc,
+                    );
                   }),
             );
           case HomeErrorState:

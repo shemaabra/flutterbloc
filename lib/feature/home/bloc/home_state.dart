@@ -20,3 +20,7 @@ class HomeErrorState extends HomeState {}
 class HomeNavigateProductWishlistPageActionState extends HomeActionState {}
 
 class HomeNavigateProductCartPageActionState extends HomeActionState {}
+
+class HomeProductItemWishListedActionState extends HomeActionState {}
+
+class HomeProductItemCartedActionState extends HomeActionState {}
