@@ -2,7 +2,6 @@ import 'package:bloc_static_example/feature/cart/bloc/cart_bloc.dart';
 import 'package:bloc_static_example/models/home_product_data.dart';
 import 'package:flutter/material.dart';
 
-
 class CartTileWIdget extends StatelessWidget {
   final ProductDataModel productDataModel;
   final CartBloc cartBloc;
@@ -43,7 +42,7 @@ class CartTileWIdget extends StatelessWidget {
               Text(
                 "\$" + productDataModel.price.toString(),
                 style:
-                const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Row(
                 children: [
@@ -59,11 +58,11 @@ class CartTileWIdget extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      // homeBloc.add(HomeProductCartButtonClickEvent(
-                      //     clickedProduct: productDataModel));
+                      cartBloc.add(CartRemoveFromCartEvent(
+                          productDataModel: productDataModel));
                     },
                     icon: const Icon(
-                      Icons.shopping_bag_outlined,
+                      Icons.shopping_bag,
                       color: Colors.black,
                     ),
                   ),
